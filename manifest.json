@@ -1,20 +1,19 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Background Color Changer",
   "version": "1.0",
   "description": "Changes the background color of web pages",
   "permissions": ["activeTab"],
-  "browser_action": {
+  "action": {
     "default_popup": "index.html"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["src/content.ts"]
+      "js": ["content.js"]
     }
   ],
   "background": {
-    "scripts": ["src/background.ts"],
-    "persistent": false
+    "service_worker": "background.js"
   }
 }
